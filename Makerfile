@@ -1,0 +1,39 @@
+.PHONY: install test lint format clean run setup help
+
+# Default
+help:
+	@echo "Available commands:"
+	@echo "  make install  - Install dependencies with Poetry"
+	@echo "  make test     - Run tests with pytest"
+	@echo "  make lint     - Run linters (Ruff, MyPy)"
+	@echo "  make format   - Format code with Black"
+	@echo "  make clean    - Remove cache files"
+	@echo "  make run      - Run April"
+	@echo "  make setup    - Install dependencies and pre-commit hooks"
+
+install:
+	poetry install
+
+test:
+	poetry run pytest
+
+lint:
+	poetry run ruff check src/
+	poetry run mypy src/
+
+format:
+	poetry run black src/
+
+clean:
+	find . -type d -name "__pycache__" -exec rm -rf {} +
+	find . -type d -name ".pytest_cache" -exec rm -rf {} +
+	find . -type d -name ".mypy_cache" -exec rm -rf {} +
+	find . -type d -name ".ruff_cache" -exec rm -rf {} +
+	rm -rf dist/ build/ *.egg-info/ .coverage htmlcov/
+
+run:
+	poetry run python -m april.main
+
+setup: install
+	poetry run pre-commit install
+	poetry run pre-commit run --all-files
