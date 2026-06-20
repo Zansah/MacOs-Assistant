@@ -1,0 +1,22 @@
+{
+  "wake_words": ["april", "hey april"],
+  "quick_command_code_word": "snap",
+  "quick_command_duration_seconds": 30,
+  "confidence_threshold": 0.8,
+  "fuzzy_threshold": 80,
+  "hud_display_seconds": 2,
+  "danger_default": "prompt",
+  "typing_dnd_threshold": 20,
+  "typing_dnd_resume_delay": 5,
+  "daily_standup_time": "09:00",
+  "backup_time": "02:00",
+  "vault_path": "~/.april/vault",
+  "github_repo_url": "",
+  "local_only_mode": false,
+  "whisper_mode": false,
+  "llm_model": "llama3",
+  "llm_backend": "ollama",
+  "llm_api_url": "http://localhost:11434",
+  "debug_mode": false,
+  "log_level": "INFO"
+}
