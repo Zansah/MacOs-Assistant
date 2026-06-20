@@ -11,6 +11,7 @@
   "daily_standup_time": "09:00",
   "backup_time": "02:00",
   "vault_path": "~/.april/vault",
+  "log_file": "~/.april/logs/april.log",
   "github_repo_url": "",
   "local_only_mode": false,
   "whisper_mode": false,
